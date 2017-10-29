@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'qbc1mxi',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<ul id="main-menu">
+  <li class="mws-logo-header" onclick="home()"><span><img id="mws-logo-header-image" src="mws-logo-header.png"/></span></li>
+  <li id="menu-item-workshops"><a id="menu-button-workshops" href="#home" onclick="toggleMenuSelection(this)">Workshops</a><span class="arrow-down"></span></li>
+  <li><a id="menu-button-history" href="#a" onclick="toggleMenuSelection(this)">History</a></li>
+  <li><a id="menu-button-dispatches" href="#a" onclick="toggleMenuSelection(this)">Dispatches</a></li>
+  <li><a id="menu-button-faculty" href="#a" onclick="toggleMenuSelection(this)">Coaches</a></li>
+  <li><a id="menu-button-contact" href="#a" onclick="toggleMenuSelection(this)">Contact</a></li>
+  <li><a id="menu-button-search" href="#a" onclick="toggleMenuSelection(this)"><span class="search-line-decoration">|</span>Search</a></li>
+  <li class="wku-logo-header"><span><img id="wku-logo-header-image" src="WKU-logo-header.png"/></span></li>
+</ul>
+<a href="#a">
+<div id="menu-apply-rectangle">
+  <span id="menu-apply">APPLY</span>
+</div>
+</a>
+
+<ul id="workshops-menu" class="workshops-menu-hidden">
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Photo-<br>journalism</a></li>
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Picture<br>Editing</a></li>
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Video<br>Storytelling</a></li>
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Time-lapse<br>Photography</a></li>
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Data<br>Visualization</a></li>
+  <li class="workshops-menu-item"><div class="workshops-menu-lines"></div><a href="#a">Data Seam<br>Teaching Track</a></li>
+</ul>
+
+<script>
+function home() {
+  window.location.href = '#home';
+}
+
+currentMenuSelection = null;
+function toggleMenuSelection(a) {
+  if (a!=currentMenuSelection) {
+    a.classList.toggle("menu-button-active");
+    if (currentMenuSelection!=null) {
+      currentMenuSelection.classList.toggle("menu-button-active");
+      if (currentMenuSelection.id=="menu-button-workshops") {
+        document.getElementById("workshops-menu").classList.toggle("workshops-menu-hidden");
+        currentMenuSelection.parentElement.childNodes[1].classList.toggle("arrow-down-active");
+        document.getElementById("menu-button-history").classList.toggle("menu-button-history-down-mobile");
+        document.getElementById("menu-button-history").classList.toggle("menu-buttons-tight-vertical-mobile");
+        document.getElementById("menu-button-dispatches").classList.toggle("menu-buttons-tight-vertical-mobile");
+        document.getElementById("menu-button-faculty").classList.toggle("menu-buttons-tight-vertical-mobile");
+        document.getElementById("menu-button-contact").classList.toggle("menu-buttons-tight-vertical-mobile");
+        document.getElementById("menu-button-search").classList.toggle("menu-buttons-tight-vertical-mobile");
+      }
+      else if (currentMenuSelection.id=="menu-button-search") {
+        currentMenuSelection.firstChild.classList.toggle("search-line-decoration-active");
+      }
+    }
+    if (a.id=="menu-button-workshops") {
+      document.getElementById("workshops-menu").classList.toggle("workshops-menu-hidden");
+      a.parentElement.childNodes[1].classList.toggle("arrow-down-active");
+      document.getElementById("menu-button-history").classList.toggle("menu-button-history-down-mobile");
+      document.getElementById("menu-button-history").classList.toggle("menu-buttons-tight-vertical-mobile");
+      document.getElementById("menu-button-dispatches").classList.toggle("menu-buttons-tight-vertical-mobile");
+      document.getElementById("menu-button-faculty").classList.toggle("menu-buttons-tight-vertical-mobile");
+      document.getElementById("menu-button-contact").classList.toggle("menu-buttons-tight-vertical-mobile");
+      document.getElementById("menu-button-search").classList.toggle("menu-buttons-tight-vertical-mobile");
+    }
+    else if (a.id=="menu-button-search") {
+      a.firstChild.classList.toggle("search-line-decoration-active");
+    }
+    currentMenuSelection = a;
+  }
+}
+</script>
+
+</body>
+</html>
+
+
